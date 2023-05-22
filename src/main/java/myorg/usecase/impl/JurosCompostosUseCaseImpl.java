@@ -5,10 +5,12 @@ import myorg.dto.JurosCompostosRequest;
 import myorg.dto.JurosCompostosResponse;
 import myorg.usecase.JurosCompostosUseCase;
 
+import java.text.DecimalFormat;
+
 @ApplicationScoped
 public class JurosCompostosUseCaseImpl implements JurosCompostosUseCase {
     @Override
-    public JurosCompostosResponse JurosCompostos(JurosCompostosRequest jurosRequest) {
+    public JurosCompostosResponse jurosCompostos(JurosCompostosRequest jurosRequest) {
         JurosCompostosResponse calcularJuros = new JurosCompostosResponse();
 
         double totalInvestimento = 0.0;
@@ -17,8 +19,10 @@ public class JurosCompostosUseCaseImpl implements JurosCompostosUseCase {
         totalInvestimento = jurosRequest.getCapital() * Math.pow((1 + (jurosRequest.getTaxaJuros() / 100)), jurosRequest.getTempoInvestimento());
         totalJuros = totalInvestimento - jurosRequest.getCapital();
 
-        calcularJuros.setTotalInvestimento(totalInvestimento);
-        calcularJuros.setJurosCompostos(totalJuros);
+        DecimalFormat df_obj = new DecimalFormat("#.##");
+
+        calcularJuros.setTotalInvestimento(Double.valueOf((df_obj.format(totalInvestimento))));
+        calcularJuros.setJurosCompostos(Double.valueOf((df_obj.format(totalJuros))));
         calcularJuros.setTempoInvestimento(jurosRequest.getTempoInvestimento());
 
         return calcularJuros;
