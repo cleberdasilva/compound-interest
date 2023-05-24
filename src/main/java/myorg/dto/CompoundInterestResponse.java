@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @RegisterForReflection
-public class JurosCompostosResponse {
+public class CompoundInterestResponse {
     private Double totalInvestimento;
     private Double jurosCompostos;
     private Integer tempoInvestimento;

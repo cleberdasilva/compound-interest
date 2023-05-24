@@ -1,17 +1,17 @@
 package myorg.usecase.impl;
 
 import jakarta.enterprise.context.ApplicationScoped;
-import myorg.dto.JurosCompostosRequest;
-import myorg.dto.JurosCompostosResponse;
-import myorg.usecase.JurosCompostosUseCase;
+import myorg.dto.CompoundInterestRequest;
+import myorg.dto.CompoundInterestResponse;
+import myorg.usecase.CompoundInterestUseCase;
 
 import java.text.DecimalFormat;
 
 @ApplicationScoped
-public class JurosCompostosUseCaseImpl implements JurosCompostosUseCase {
+public class CompoundInterestUseCaseImpl implements CompoundInterestUseCase {
     @Override
-    public JurosCompostosResponse jurosCompostos(JurosCompostosRequest jurosRequest) {
-        JurosCompostosResponse calcularJuros = new JurosCompostosResponse();
+    public CompoundInterestResponse compoundInterest(CompoundInterestRequest jurosRequest) {
+        CompoundInterestResponse calcularJuros = new CompoundInterestResponse();
 
         double totalInvestimento = 0.0;
         double totalJuros = 0.0;

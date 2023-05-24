@@ -14,7 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 @RegisterForReflection
-public class JurosCompostosRequest {
+public class CompoundInterestRequest {
     private Double capital;
     private Double taxaJuros;
     private Integer tempoInvestimento;
